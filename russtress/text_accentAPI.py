@@ -41,7 +41,7 @@ class Accent(object):
             acc_word = word[:index + 1] + '\'' + word[index + 1:]
             return(acc_word)
 
-    def put_stress(self, text, stress_symbol="'"):
+    def put_stress(self, text, stress_symbol="+"):
         """This function gets any string as an input and returns the same string
         but only with the predicted stress marks.
 
@@ -68,7 +68,7 @@ class Accent(object):
                 except IndexError:
                     temp = ''
                 if temp == token.lower():
-                    stress_position = accented_phrase[0].find("'")
+                    stress_position = accented_phrase[0].find("'") - 1
                     final.append(token[:stress_position] +
                                     stress_symbol + token[stress_position:])
                     accented_phrase = accented_phrase[1:]
